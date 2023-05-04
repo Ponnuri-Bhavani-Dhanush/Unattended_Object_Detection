@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add User</title>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form p {
+            margin-bottom: 10px;
+        }
+
+        form label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        form input[type="text"], 
+        form input[type="email"], 
+        form input[type="password"] {
+            border: 1px solid black;
+            border-radius: 3px;
+            padding: 5px;
+            margin-bottom: 5px;
+            font-size: 16px;
+            width: 20%;
+        }
+
+        form input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        form input[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+        .centered{
+            display: block!important;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 20px;
+            margin-top: 10px;
+            width: 20%;
+            padding: 10px;
+        }
+
+
+    </style>
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+    <br>
+    <div class="container border border-dark my-5">
+        <br>
+        <h1 style="text-align: center;">Add User</h1>
+        <form method="post" style="text-align: center">
+            {% csrf_token %}
+            <div class="form-group row">
+                <label for="{{ form.username.id_for_label }}" class="col-sm-2 col-form-label" style="margin-left: 30%; text-align: left;">{{ form.username.label }}</label>
+                  {{ form.username }}
+            </div>
+            <div class="form-group row">
+                <label for="{{ form.password.id_for_label }}" class="col-sm-2 col-form-label" style="margin-left: 30%;text-align: left;">{{ form.password.label }}</label>
+                  {{ form.password }}
+            </div>
+            <div class="form-group row">
+                <label for="{{ form.confirm_password.id_for_label }}" class="col-sm-2 col-form-label" style="margin-left: 30%;text-align: left;">{{ form.confirm_password.label }}</label>
+                  {{ form.confirm_password }}
+            </div>
+            <div class="form-group row">
+                <label for="{{ form.email.id_for_label }}" class="col-sm-2 col-form-label" style="margin-left: 30%;text-align: left;">{{ form.email.label }}</label>
+                  {{ form.email }}
+            </div>
+            <div class="form-group row">
+                <label for="{{ form.first_name.id_for_label }}" class="col-sm-2 col-form-label" style="margin-left: 30%;text-align: left;">{{ form.first_name.label }}</label>
+                  {{ form.first_name }}
+            </div>
+            <div class="form-group row">
+                <label for="{{ form.last_name.id_for_label }}" class="col-sm-2 col-form-label" style="margin-left: 30%;text-align: left;">{{ form.last_name.label }}</label>
+                  {{ form.last_name }}
+            </div>
+            <div class="form-group row">
+                <label for="{{ form.phone_number.id_for_label }}" class="col-sm-2 col-form-label" style="margin-left: 30%;text-align: left;">{{ form.phone_number.label }}</label>
+                  {{ form.phone_number }}
+            </div>
+            <div class="form-group row">
+                <label for="{{ form.date_of_birth.id_for_label }}" class="col-sm-2 col-form-label" style="margin-left: 30%;text-align: left;">{{ form.date_of_birth.label }}</label>
+                <input type="date" name="{{ form.date_of_birth.name }}" value="{{ form.date_of_birth.value|default:'' }}" id="{{ form.date_of_birth.id_for_label }}" style="width: 150px; border: 1px solid black; border-radius: 2px; margin-bottom: 5px;">
+            </div>
+            <div class="form-group row">
+                <label for="{{ form.place.id_for_label }}" class="col-sm-2 col-form-label" style="margin-left: 30%;text-align: left;">{{ form.place.label }}</label>
+                  {{ form.place }}
+            </div>
+            <div class="form-group row">
+                <label for="{{ form.question.id_for_label }}" class="col-sm-2 col-form-label" style="margin-left: 30%;text-align: left;">What is your Childhood Nickname?</label>
+                  {{ form.question }}
+            </div>
+            <button type="submit" class="btn btn-success centered">Add User</button>
+            <br>
+        </form>
+    </div>
+    {% endblock %}
+</body>
+</html>
+
+

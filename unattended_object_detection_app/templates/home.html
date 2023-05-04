@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <div class="container border border-dark my-5" style="text-align: center;">
+        <br><h2>Unattended Object Detection</h2>
+        <form method="post">
+            {% csrf_token %}
+          <div class="form-group my-5">
+            <label for="email" style="font-weight: bold; font-size: larger;" class="my-2">Email</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="email"  id="email" placeholder="Enter Email ID" name="email">
+          </div>
+          <div class="form-group my-5">
+            <label for="phone" style="font-weight: bold; font-size: larger;" class="my-2">Mobile</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="phone"  id="phone" placeholder="Enter Mobile Number" name="phone" value="{{phone_number}}">
+          </div>
+          <div class="form-group my-5">
+            <label for="video" style="font-weight: bold; font-size: larger;" class="my-2">Video</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <select name="video" id="video">
+                <option disabled selected value>--Select the Video--</option>
+                <option value="video1.avi">Video1</option>
+                <option value="video2.avi">Video2</option>
+                <option value="video3.avi">Video3</option>
+                <option value="video4.avi">Video4</option>
+                <option value="video5.avi">Video5</option>
+                <option value="video6.avi">Video6</option>
+                <option value="video7.avi">Video7</option>
+                <option value="video8.avi">Video8</option>
+                <option value="video9.avi">Video9</option>
+                <option value="video10.avi">Video10</option>
+                <option value="video11.avi">Video11</option>
+            </select>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+        <br>
+        </form>
+      </div>
+{% endblock %}
+
