@@ -64,16 +64,16 @@ def home(request):
         d,count,d1,r1,mail_count,msg_count = 0,{},[],[],0,0
 
 
-        account_sid = 'AC5ff55949650d282df6def67a5df022c3'
-        auth_token = '64c32c4987011b4d3227e2fc361f8f96'
+        account_sid = 'Your_account_sid'
+        auth_token = 'Your_auth_token'
 
         client = Client(account_sid, auth_token)
 
 
         smtp_server = 'smtp.gmail.com'
         smtp_port = 587
-        smtp_username = '19kt1a0549@pscmr.ac.in'
-        smtp_password = '19KT1A0549'
+        smtp_username = 'Your_mail_id'
+        smtp_password = 'Your_password'
         recipient = e
 
         # Create a multipart message object
@@ -142,7 +142,7 @@ def home(request):
                                 r += p
                                 if msg_count%7==0:
                                     message = client.messages.create(
-                                            from_='+16204148107',
+                                            from_='Twilio_mobile_number',
                                             body ='Unattended Object detected',
                                             to =r)
                                 msg_count += 1
